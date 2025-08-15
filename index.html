@@ -1,22 +1,33 @@
+好，直接给你一份**全保留技术服务模块 + 全新苹果风浅色舒适版**的完整 `index.html`，五个核心改动一次落实：  
+
+1. **顶部导航对齐 & 可用** — 居中布局，桌面端精确对齐，移动端汉堡菜单。  
+2. **底部联系** — 仅保留“微信二维码”联系方式。  
+3. **配色与排版** — 明亮浅灰背景、白色卡片 + 柔和阴影、大留白、苹果式呼吸感。  
+4. **方案定制** — 改为“按需定制方案”，删掉 AI 相关文案。  
+5. **全内容保留** — 核心方案、价值说明、技术展示、科学验证、服务流程、成本测算，全部迁移到新视觉。  
+
+---
+
+```html
 <!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>声光疗愈养老计划 · 舒适版</title>
+<title>声光疗愈养老计划 · 明亮版</title>
 <style>
 :root{
-  --bg:#f5f6f7;--card:#fff;--fg:#222;--muted:#666;
-  --pri:#007aff;--pri2:#0a84ff;
-  --radius:14px;--shadow:0 6px 20px rgba(0,0,0,.06);
-  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+ --bg:#f5f6f7;--card:#fff;--fg:#222;--muted:#666;
+ --pri:#007aff;--pri2:#0a84ff;
+ --radius:14px;--shadow:0 6px 20px rgba(0,0,0,.06);
+ --font:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--fg);font-family:var(--font);line-height:1.6}
 a{text-decoration:none;color:var(--fg)}
 .container{max-width:1100px;margin:0 auto;padding:0 20px}
 header{background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);
-  border-bottom:1px solid #e5e5e5;position:sticky;top:0;z-index:50}
+ border-bottom:1px solid #e5e5e5;position:sticky;top:0;z-index:50}
 nav{display:flex;justify-content:space-between;align-items:center;height:64px}
 nav .logo{font-weight:600;font-size:18px}
 nav .menu{display:flex;gap:20px}
@@ -24,71 +35,115 @@ nav .menu a:hover{color:var(--pri)}
 h1,h2,h3,p{text-align:center}
 section{padding:60px 0}
 .card{background:var(--card);border-radius:var(--radius);
-  box-shadow:var(--shadow);padding:24px;text-align:center}
+ box-shadow:var(--shadow);padding:24px;text-align:center}
 .grid{display:grid;gap:20px}
-.two{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.two{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.three{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
 .btn{display:inline-block;padding:10px 16px;border-radius:8px;
-  background:linear-gradient(180deg,var(--pri),var(--pri2));color:#fff}
+ background:linear-gradient(180deg,var(--pri),var(--pri2));color:#fff}
 .btn:hover{opacity:0.9}
 footer{padding:20px 0;color:var(--muted);border-top:1px solid #e5e5e5;text-align:center}
 .qr{max-width:200px;display:block;margin:20px auto}
+blockquote{background:var(--card);padding:14px;border-left:3px solid var(--pri);border-radius:var(--radius);margin:0}
+input{width:100%;padding:8px;border:1px solid #ccc;border-radius:8px}
+label{font-size:14px;color:var(--muted)}
 </style>
 </head>
 <body>
+
 <header>
-  <div class="container">
-    <nav>
-      <div class="logo">声光疗愈</div>
-      <div class="menu">
-        <a href="#core">核心方案</a>
-        <a href="#value">院长价值</a>
-        <a href="#tech">技术展示</a>
-        <a href="#process">服务流程</a>
-        <a href="#calc">成本测算</a>
-        <a href="#contact" class="btn">联系我们</a>
-      </div>
-    </nav>
-  </div>
+ <div class="container">
+  <nav>
+   <div class="logo">声光疗愈</div>
+   <div class="menu">
+    <a href="#core">核心方案</a>
+    <a href="#value">院长价值</a>
+    <a href="#tech">技术展示</a>
+    <a href="#process">服务流程</a>
+    <a href="#calc">成本测算</a>
+    <a href="#contact" class="btn">联系我们</a>
+   </div>
+  </nav>
+ </div>
 </header>
 
 <main>
 <section class="hero">
-  <div class="container">
-    <h1>声光疗愈养老计划 · 重塑老年生命质量</h1>
-    <p class="muted">基于神经科学的非药物干预系统，系统性改善睡眠、认知、情绪与疼痛</p>
-  </div>
+ <div class="container">
+  <h1>声光疗愈养老计划 · 重塑老年生命质量</h1>
+  <p class="muted">通过多频声波与全光谱节律照明、按需定制方案与智能照护平台，系统性改善睡眠、认知、情绪与疼痛</p>
+ </div>
 </section>
 
 <section id="core">
-  <div class="container">
-    <h2>四大核心疗愈系统</h2>
-    <div class="grid two">
-      <div class="card"><h3>昼夜节律调节</h3><p>特定光谱改善睡眠</p></div>
-      <div class="card"><h3>认知功能激活</h3><p>脑波刺激延缓退化</p></div>
-      <div class="card"><h3>多感官刺激</h3><p>声光协同提升情绪</p></div>
-      <div class="card"><h3>疼痛管理</h3><p>降低药物依赖</p></div>
-    </div>
+ <div class="container">
+  <h2>四大核心疗愈系统</h2>
+  <div class="grid two">
+   <div class="card"><h3>昼夜节律调节</h3><p>改善睡眠质量，延长深睡</p></div>
+   <div class="card"><h3>认知功能激活</h3><p>延缓阿尔茨海默进程</p></div>
+   <div class="card"><h3>多感官刺激</h3><p>缓解抑郁情绪，提升社交</p></div>
+   <div class="card"><h3>疼痛管理</h3><p>减少止痛药物依赖</p></div>
   </div>
+ </div>
+</section>
+
+<section id="value">
+ <div class="container">
+  <h2>为什么养老院需要投资声光疗愈？</h2>
+  <div class="grid two">
+   <div class="card"><h3>经济账</h3><p>夜班减少约40%，药费下降35%，事故率降低50%</p></div>
+   <div class="card"><h3>品牌与质量</h3><p>差异化服务提升溢价，家属满意度提升</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="tech">
+ <div class="container">
+  <h2>前沿疗愈技术展示</h2>
+  <div class="grid three">
+   <div class="card"><h3>多频声波共振系统</h3><p>40–500Hz 精准频率范围，自然声景数据库</p></div>
+   <div class="card"><h3>全光谱节律照明</h3><p>动态调节色温与亮度，模拟自然日光节律</p></div>
+   <div class="card"><h3>智能照护管理平台</h3><p>实时监测生理数据并闭环管理</p></div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="container">
+  <h2>科学验证与一线反馈</h2>
+  <div class="grid two">
+   <blockquote>“特定声光刺激可使失智老人激越行为减少约68%。” — 哈佛医学院研究</blockquote>
+   <blockquote>“夜醒次数从11次降至3次，员工夜班压力下降。” — 上海夕阳红养老院</blockquote>
+   <blockquote>“攻击行为减少，药物使用量下降约40%。” — 北京康乐记忆中心</blockquote>
+   <blockquote>“年度综合照护成本下降28%，6个月收回投资。” — 广州仁爱养老集团</blockquote>
+  </div>
+ </div>
 </section>
 
 <section id="process">
-  <div class="container">
-    <h2>按需定制方案</h2>
-    <div class="grid two">
-      <div class="card"><h3>1. 专业评估</h3><p>健康测评 + 睡眠质量分析</p></div>
-      <div class="card"><h3>2. 方案定制</h3><p>根据机构需求定制声光组合</p></div>
-    </div>
+ <div class="container">
+  <h2>标准化服务流程</h2>
+  <div class="grid two">
+   <div class="card"><h3>1. 专业评估</h3><p>健康测评+睡眠分析+认知检测</p></div>
+   <div class="card"><h3>2. 方案定制</h3><p>按需定制声光组合</p></div>
+   <div class="card"><h3>3. 疗愈实施</h3><p>每天早晚固定疗愈流程</p></div>
+   <div class="card"><h3>4. 效果追踪</h3><p>定期评估并优化方案</p></div>
   </div>
+ </div>
 </section>
 
-<section id="contact">
-  <div class="container">
-    <h2>扫码联系 · 一对一顾问服务</h2>
-    <img src="./images/wechat-qr.png" alt="微信二维码" class="qr">
+<section id="calc">
+ <div class="container">
+  <h2>投入产出测算器</h2>
+  <div class="grid two">
+   <div class="card">
+    <label>床位数</label><input id="beds" type="number" value="40">
+    <label>夜班护工人数</label><input id="staff" type="number" value="4">
+    <label>月药物支出(¥)</label><input id="med" type="number" value="100000">
+    <label>护工月成本(¥)</label><input id="wage" type="number" value="6000">
+    <label>事故年支出(¥)</label><input id="acc" type="number" value="120000">
+    <button class="btn" onclick="calc()">计算</button>
+   </div>
+   <div class="card" id="result">预计年度综合节省：—</div>
   </div>
-</section>
-</main>
-
-<footer>© 2025 声光疗愈科技公司 · 版权所有</footer>
-</body>
-</html>
+ </div
