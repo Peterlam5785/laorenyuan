@@ -1,1185 +1,411 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>声光疗愈养老计划 · 重塑老年生命质量</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #4e89ae;
-            --secondary: #43658b;
-            --accent: #ed6663;
-            --light: #f8f9fa;
-            --dark: #2c3e50;
-            --success: #68b0ab;
-            --gradient: linear-gradient(135deg, #4e89ae 0%, #43658b 100%);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f7fa;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background: var(--gradient);
-            color: white;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        
-        .logo i {
-            margin-right: 10px;
-            color: #ffd166;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            padding: 8px 12px;
-            border-radius: 4px;
-        }
-        
-        nav ul li a:hover {
-            background: rgba(255,255,255,0.2);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: url('https://images.unsplash.com/photo-1536152470836-b943b246224c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-        }
-        
-        .hero-content {
-            position: relative;
-            color: white;
-            max-width: 700px;
-            padding: 0 20px;
-            text-align: center;
-            margin: 0 auto;
-        }
-        
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .hero-content p {
-            font-size: 1.4rem;
-            margin-bottom: 30px;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(237, 102, 99, 0.4);
-        }
-        
-        .btn:hover {
-            background: #e05552;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(237, 102, 99, 0.6);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            border: 2px solid white;
-            margin-left: 15px;
-        }
-        
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.2);
-        }
-        
-        /* Features Section */
-        .section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--secondary);
-            margin-bottom: 15px;
-        }
-        
-        .section-title p {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-        
-        .feature-img {
-            height: 200px;
-            background: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-        }
-        
-        .feature-content {
-            padding: 25px;
-        }
-        
-        .feature-content h3 {
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-            color: var(--secondary);
-        }
-        
-        .feature-content p {
-            color: #555;
-            margin-bottom: 20px;
-        }
-        
-        .feature-stats {
-            display: flex;
-            justify-content: space-between;
-            background: #f1f7fe;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-value {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-        
-        .stat-label {
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        /* Value Proposition */
-        .value-proposition {
-            background: #f1f7fe;
-            padding: 80px 0;
-        }
-        
-        .value-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-        
-        .value-card {
-            background: white;
-            border-radius: 15px;
-            padding: 35px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        
-        .value-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .value-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 2rem;
-            color: white;
-        }
-        
-        .value-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--secondary);
-        }
-        
-        .value-card ul {
-            list-style: none;
-            text-align: left;
-            margin-top: 20px;
-        }
-        
-        .value-card ul li {
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-        }
-        
-        .value-card ul li:last-child {
-            border-bottom: none;
-        }
-        
-        .value-card ul li i {
-            color: var(--success);
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-        
-        /* Technology Section */
-        .tech-showcase {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-        }
-        
-        .tech-item {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-        
-        .tech-img {
-            height: 220px;
-            background: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-        }
-        
-        .tech-content {
-            padding: 25px;
-        }
-        
-        .tech-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--secondary);
-        }
-        
-        .tech-content p {
-            color: #555;
-            margin-bottom: 20px;
-        }
-        
-        .tech-stats {
-            display: flex;
-            background: #f1f7fe;
-            padding: 10px 15px;
-            border-radius: 8px;
-            margin-top: 15px;
-            font-size: 0.9rem;
-        }
-        
-        .tech-stats i {
-            color: var(--accent);
-            margin-right: 8px;
-        }
-        
-        /* Process Section */
-        .process {
-            background: var(--gradient);
-            color: white;
-            padding: 80px 0;
-        }
-        
-        .process-steps {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-            margin-top: 50px;
-            flex-wrap: wrap;
-        }
-        
-        .process-steps::before {
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 10%;
-            width: 80%;
-            height: 3px;
-            background: rgba(255,255,255,0.3);
-        }
-        
-        .step {
-            text-align: center;
-            width: 20%;
-            min-width: 200px;
-            position: relative;
-            z-index: 2;
-            margin-bottom: 40px;
-        }
-        
-        .step-icon {
-            width: 80px;
-            height: 80px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 1.8rem;
-            color: var(--primary);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .step h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .testimonial-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            position: relative;
-        }
-        
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 5rem;
-            color: var(--primary);
-            opacity: 0.1;
-            font-family: Georgia, serif;
-        }
-        
-        .testimonial-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            color: #555;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .author-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--secondary);
-            margin-right: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-        
-        .author-info h4 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-        
-        .author-info p {
-            color: #777;
-            font-size: 0.9rem;
-        }
-        
-        /* ROI Calculator */
-        .roi-calculator {
-            background: var(--dark);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .calculator-box {
-            background: rgba(255,255,255,0.1);
-            max-width: 700px;
-            margin: 40px auto 0;
-            padding: 40px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .calculator-box h3 {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-        }
-        
-        .input-group {
-            margin-bottom: 25px;
-            text-align: left;
-        }
-        
-        .input-group label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-        
-        .input-group input {
-            width: 100%;
-            padding: 15px;
-            border-radius: 8px;
-            border: none;
-            background: rgba(255,255,255,0.15);
-            color: white;
-            font-size: 1.1rem;
-        }
-        
-        .input-group input:focus {
-            outline: 2px solid var(--accent);
-        }
-        
-        .result {
-            background: var(--success);
-            padding: 25px;
-            border-radius: 10px;
-            margin-top: 30px;
-            text-align: center;
-        }
-        
-        .result h4 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-        
-        .result-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 60px 0 30px;
-        }
-        
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-logo {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .footer-logo i {
-            margin-right: 10px;
-            color: var(--accent);
-        }
-        
-        .footer-info p {
-            margin-bottom: 20px;
-            color: #bbb;
-            max-width: 300px;
-        }
-        
-        .footer-links h3, .footer-contact h3 {
-            font-size: 1.4rem;
-            margin-bottom: 25px;
-            position: relative;
-        }
-        
-        .footer-links h3::after, .footer-contact h3::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--accent);
-        }
-        
-        .footer-links ul {
-            list-style: none;
-        }
-        
-        .footer-links ul li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-links ul li a {
-            color: #bbb;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-links ul li a:hover {
-            color: white;
-            padding-left: 5px;
-        }
-        
-        .contact-item {
-            display: flex;
-            margin-bottom: 20px;
-        }
-        
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            color: var(--accent);
-        }
-        
-        .contact-text {
-            color: #bbb;
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #bbb;
-            font-size: 0.9rem;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-            
-            .process-steps {
-                justify-content: center;
-            }
-            
-            .step {
-                width: 40%;
-                margin-bottom: 60px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-            }
-            
-            nav ul {
-                margin-top: 20px;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.3rem;
-            }
-            
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-            
-            .section {
-                padding: 60px 0;
-            }
-            
-            .btn {
-                display: block;
-                margin: 10px auto;
-                text-align: center;
-            }
-            
-            .step {
-                width: 100%;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>声光疗愈养老计划 · 重塑老年生命质量</title>
+  <meta name="description" content="基于神经科学的非药物干预系统，帮助养老机构提升照护质量、降低运营成本，实现科技养老转型。">
+  <style>
+    :root{
+      --bg:#0a0a0a; --card:#111214; --muted:#9aa1a8;
+      --fg:#e6e8eb; --pri:#5b8cff; --pri-2:#3b6cf0; --acc:#00d3a7; --warn:#ffb020;
+      --radius:14px; --shadow:0 10px 30px rgba(0,0,0,.25);
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC","Hiragino Sans GB","Microsoft YaHei", "Noto Sans CJK SC", "WenQuanYi Micro Hei", Helvetica, Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#07080a 0%,#0b0d10 100%);color:var(--fg);font:16px/1.6 var(--font);}
+    a{color:var(--fg);text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter: saturate(1.2) blur(10px); background:rgba(10,11,13,.6); border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;gap:10px;align-items:center}
+    .logo{width:28px;height:28px;border-radius:8px;background:conic-gradient(from 210deg, #2af598, #009efd 60%, #6a11cb 90%);box-shadow:0 0 20px rgba(0,222,253,.25)}
+    .brand span{font-weight:600;letter-spacing:.3px}
+    .menu{display:flex;gap:18px;flex-wrap:wrap}
+    .menu a{opacity:.85} .menu a:hover{opacity:1;color:var(--pri)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:10px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+      color:var(--fg); transition:.2s ease; cursor:pointer;
+    }
+    .btn:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.22)}
+    .btn.pri{background:linear-gradient(180deg,var(--pri),var(--pri-2)); border:none; box-shadow:0 8px 24px rgba(91,140,255,.35)}
+    .btn.ghost{background:transparent;border-color:rgba(255,255,255,.16)}
+    .hero{
+      padding:72px 0 40px; position:relative; overflow:hidden;
+    }
+    .hero-bg{
+      position:absolute; inset:0; pointer-events:none;
+      background:
+        radial-gradient(800px 300px at 20% 0%, rgba(0,222,253,.12), transparent 60%),
+        radial-gradient(800px 300px at 80% 0%, rgba(42,245,152,.12), transparent 60%),
+        radial-gradient(1200px 600px at 50% 100%, rgba(107,17,203,.10), transparent 60%);
+      filter:saturate(0.9);
+    }
+    .hero .container{position:relative}
+    .tag{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.15);color:#cfe7ff;background:rgba(60,120,255,.10)}
+    .h1{font-size:42px; line-height:1.2; letter-spacing:.2px; margin:16px 0 12px;}
+    .sub{color:var(--muted); max-width:800px; margin-bottom:20px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+    .grid{display:grid; gap:16px}
+    .cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .card{
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius); padding:18px; box-shadow:var(--shadow); min-height:160px;
+    }
+    .k{font-size:28px; font-weight:700} .muted{color:var(--muted)}
+    section{padding:44px 0}
+    h2{font-size:26px;margin:0 0 12px}
+    h3{font-size:18px;margin:0 0 8px}
+    .two{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .three{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .list{display:grid;gap:10px}
+    .item{display:flex;align-items:flex-start;gap:10px}
+    .dot{width:10px;height:10px;border-radius:50%;margin-top:7px;background:linear-gradient(180deg,#2af598,#009efd)}
+    .pill{display:inline-block;padding:4px 8px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);color:#b6f9e8;margin-left:8px}
+    blockquote{
+      margin:0; padding:14px 16px; border-left:3px solid var(--pri); background:rgba(255,255,255,.04); border-radius:8px;
+    }
+    .quote{display:grid;gap:8px}
+    .panel{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:16px}
+    .calc input{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.03);color:var(--fg)}
+    .calc label{font-size:13px;color:var(--muted)}
+    .row{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+    .full{grid-column:1/-1}
+    .result{font-size:22px;font-weight:700;color:#c1f8e5}
+    footer{padding:28px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,.08);margin-top:40px}
+    .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(255,255,255,.06);padding:2px 6px;border-radius:6px;border:1px solid rgba(255,255,255,.1)}
+    @media (max-width:980px){ .cards, .two, .three{grid-template-columns:1fr} .h1{font-size:34px} }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <i class="fas fa-brain"></i>
-                <span>声光疗愈</span>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#features">核心方案</a></li>
-                    <li><a href="#value">院长价值</a></li>
-                    <li><a href="#technology">技术展示</a></li>
-                    <li><a href="#process">服务流程</a></li>
-                    <li><a href="#calculator">成本测算</a></li>
-                    <li><a href="#contact" class="btn btn-secondary">预约演示</a></li>
-                </ul>
-            </nav>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <span>声光疗愈</span>
         </div>
-    </header>
+        <div class="menu">
+          <a href="#core">核心方案</a>
+          <a href="#value">院长价值</a>
+          <a href="#tech">技术展示</a>
+          <a href="#process">服务流程</a>
+          <a href="#calc">成本测算</a>
+          <a href="#contact" class="btn ghost">联系我们</a>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Hero Section -->
+  <main>
     <section class="hero">
-        <div class="hero-content">
-            <h1>声光疗愈养老计划 · 重塑老年生命质量</h1>
-            <p>基于神经科学的非药物干预系统 · 降低照护成本30%</p>
-            <div>
-                <a href="#calculator" class="btn">获取成本测算报告</a>
-                <a href="#contact" class="btn btn-secondary">预约产品演示</a>
-            </div>
+      <div class="hero-bg"></div>
+      <div class="container">
+        <div class="tag">
+          <span>基于神经科学的非药物干预系统</span>
+          <span class="pill">降低照护成本约30%</span>
         </div>
+        <h1 class="h1">声光疗愈养老计划 · 重塑老年生命质量</h1>
+        <p class="sub">通过多频声波与全光谱节律照明、AI个性化方案与智能照护平台，系统性改善睡眠、认知、情绪与疼痛，提升照护质量并降低运营成本。</p>
+        <div class="cta">
+          <a href="#calc" class="btn pri">获取成本测算报告</a>
+          <a href="#contact" class="btn">预约产品演示</a>
+        </div>
+      </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="section" id="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>四大核心疗愈系统</h2>
-                <p>科学验证的声光干预方案，针对性解决养老院核心痛点</p>
-            </div>
-            
-            <div class="features">
-                <div class="feature-card">
-                    <div class="feature-img" style="background: linear-gradient(135deg, #43658b 0%, #4e89ae 100%);">
-                        <i class="fas fa-bed"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h3>昼夜节律调节系统</h3>
-                        <p>通过特定光谱调节褪黑素分泌，解决老人失眠/昼夜颠倒问题，改善睡眠质量</p>
-                        <div class="feature-stats">
-                            <div class="stat-item">
-                                <div class="stat-value">86%</div>
-                                <div class="stat-label">睡眠改善率</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">2.3h</div>
-                                <div class="stat-label">深睡延长</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-img" style="background: linear-gradient(135deg, #68b0ab 0%, #8fc0a9 100%);">
-                        <i class="fas fa-memory"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h3>认知功能激活方案</h3>
-                        <p>α/γ脑波刺激技术增强神经可塑性，延缓阿尔茨海默进程，提升认知能力</p>
-                        <div class="feature-stats">
-                            <div class="stat-item">
-                                <div class="stat-value">42%</div>
-                                <div class="stat-label">记忆改善</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">68%</div>
-                                <div class="stat-label">激越行为减少</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-img" style="background: linear-gradient(135deg, #ed6663 0%, #ffa372 100%);">
-                        <i class="fas fa-smile"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h3>多感官刺激疗法</h3>
-                        <p>声光协同刺激提升血清素水平，改善抑郁情绪，增强社交意愿与生活质量</p>
-                        <div class="feature-stats">
-                            <div class="stat-item">
-                                <div class="stat-value">57%</div>
-                                <div class="stat-label">抑郁症状缓解</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">3.5x</div>
-                                <div class="stat-label">社交活动增加</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-img" style="background: linear-gradient(135deg, #6a5acd 0%, #9370db 100%);">
-                        <i class="fas fa-pills"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h3>疼痛管理干预系统</h3>
-                        <p>δ波诱导技术激活内源性止痛机制，减少止痛药物依赖，提高生活舒适度</p>
-                        <div class="feature-stats">
-                            <div class="stat-item">
-                                <div class="stat-value">63%</div>
-                                <div class="stat-label">疼痛感知降低</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">35%</div>
-                                <div class="stat-label">药物使用减少</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section id="core">
+      <div class="container">
+        <h2>四大核心疗愈系统</h2>
+        <p class="muted">科学验证的声光干预方案，针对性解决养老院核心痛点。</p>
+        <div class="grid cards">
+          <div class="card">
+            <h3>昼夜节律调节系统</h3>
+            <p class="muted">通过特定光谱调节褪黑素分泌，解决失眠/昼夜颠倒，改善睡眠质量。</p>
+            <div class="k">86%</div><div class="muted">睡眠改善率</div>
+            <div class="k">2.3h</div><div class="muted">深睡延长</div>
+          </div>
+          <div class="card">
+            <h3>认知功能激活方案</h3>
+            <p class="muted">α/γ脑波刺激增强神经可塑性，延缓阿尔茨海默进程，提升认知能力。</p>
+            <div class="k">42%</div><div class="muted">记忆改善</div>
+            <div class="k">68%</div><div class="muted">激越行为减少</div>
+          </div>
+          <div class="card">
+            <h3>多感官刺激疗法</h3>
+            <p class="muted">声光协同刺激提升血清素，改善抑郁情绪，增强社交意愿与生活质量。</p>
+            <div class="k">57%</div><div class="muted">抑郁症状缓解</div>
+            <div class="k">3.5x</div><div class="muted">社交活动增加</div>
+          </div>
+          <div class="card">
+            <h3>疼痛管理干预系统</h3>
+            <p class="muted">δ波诱导技术激活内源性止痛机制，减少止痛药物依赖，提升舒适度。</p>
+            <div class="k">63%</div><div class="muted">疼痛感知降低</div>
+            <div class="k">35%</div><div class="muted">药物使用减少</div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Value Proposition -->
-    <section class="value-proposition" id="value">
-        <div class="container">
-            <div class="section-title">
-                <h2>为什么养老院需要投资声光疗愈？</h2>
-                <p>解决院长最关心的运营痛点，创造可量化的经济价值</p>
+    <section id="value">
+      <div class="container">
+        <h2>为什么养老院需要投资声光疗愈？</h2>
+        <div class="grid two">
+          <div class="panel">
+            <h3>经济账：降低综合成本</h3>
+            <div class="list">
+              <div class="item"><div class="dot"></div><div><strong>夜班配置：</strong>减少夜班护工配置需求 <span class="pill">约40%</span></div></div>
+              <div class="item"><div class="dot"></div><div><strong>药物支出：</strong>精神类药物支出下降 <span class="pill">约35%</span></div></div>
+              <div class="item"><div class="dot"></div><div><strong>跌倒事故：</strong>因睡眠改善导致跌倒事故率降低 <span class="pill">约50%</span></div></div>
+              <div class="item"><div class="dot"></div><div><strong>用工与纠纷：</strong>降低流失与医疗纠纷相关隐性成本</div></div>
             </div>
-            
-            <div class="value-container">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h3>经济账：降低综合成本</h3>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> 减少夜班护工配置需求40%</li>
-                        <li><i class="fas fa-check-circle"></i> 精神类药物支出下降35%</li>
-                        <li><i class="fas fa-check-circle"></i> 跌倒事故率降低50%（改善睡眠质量）</li>
-                        <li><i class="fas fa-check-circle"></i> 降低员工流失率（工作压力减少）</li>
-                        <li><i class="fas fa-check-circle"></i> 减少医疗事故纠纷成本</li>
-                    </ul>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>品牌溢价能力</h3>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> 差异化服务提升收费空间（+15%床位费）</li>
-                        <li><i class="fas fa-check-circle"></i> 家属满意度提升带来转介绍率倍增</li>
-                        <li><i class="fas fa-check-circle"></i> 政府智慧养老项目优先合作单位</li>
-                        <li><i class="fas fa-check-circle"></i> 媒体关注提升机构知名度</li>
-                        <li><i class="fas fa-check-circle"></i> 建立科技养老标杆形象</li>
-                    </ul>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>照护质量提升</h3>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> 员工工作压力降低32%</li>
-                        <li><i class="fas fa-check-circle"></i> 老人配合度提升，减少照护冲突</li>
-                        <li><i class="fas fa-check-circle"></i> 非药物干预减少副作用风险</li>
-                        <li><i class="fas fa-check-circle"></i> 提升JCI等认证评分</li>
-                        <li><i class="fas fa-check-circle"></i> 家属探视频率增加25%</li>
-                    </ul>
-                </div>
+          </div>
+          <div class="panel">
+            <h3>品牌与照护质量提升</h3>
+            <div class="list">
+              <div class="item"><div class="dot"></div><div><strong>溢价能力：</strong>差异化服务提升收费空间 <span class="pill">约+15%床位费</span></div></div>
+              <div class="item"><div class="dot"></div><div><strong>家属口碑：</strong>满意度提升带来转介绍倍增</div></div>
+              <div class="item"><div class="dot"></div><div><strong>合规认证：</strong>非药物干预减少副作用风险、提升认证评分</div></div>
+              <div class="item"><div class="dot"></div><div><strong>来访频率：</strong>家属探视频率提升 <span class="pill">约+25%</span></div></div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Technology Section -->
-    <section class="section" id="technology">
-        <div class="container">
-            <div class="section-title">
-                <h2>前沿疗愈技术展示</h2>
-                <p>基于神经科学研究的硬件+软件解决方案</p>
-            </div>
-            
-            <div class="tech-showcase">
-                <div class="tech-item">
-                    <div class="tech-img" style="background: linear-gradient(135deg, #43658b 0%, #4e89ae 100%);">
-                        <i class="fas fa-wave-square"></i>
-                    </div>
-                    <div class="tech-content">
-                        <h3>多频声波共振系统</h3>
-                        <p>专利的δ/θ/α脑波诱导技术，针对不同症状精准匹配声频方案</p>
-                        <div class="tech-stats">
-                            <i class="fas fa-bolt"></i>
-                            <span>日间提升专注力30% · 夜间深睡延长2小时</span>
-                        </div>
-                        <div class="tech-stats">
-                            <i class="fas fa-volume-up"></i>
-                            <span>40-500Hz精准频率范围 · 自然声景数据库</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="tech-item">
-                    <div class="tech-img" style="background: linear-gradient(135deg, #ed6663 0%, #ffa372 100%);">
-                        <i class="fas fa-sun"></i>
-                    </div>
-                    <div class="tech-content">
-                        <h3>全光谱节律照明</h3>
-                        <p>动态调节色温与亮度，模拟自然日光节律</p>
-                        <div class="tech-stats">
-                            <i class="fas fa-lightbulb"></i>
-                            <span>480nm蓝光抑制褪黑素 · 日间活力提升</span>
-                        </div>
-                        <div class="tech-stats">
-                            <i class="fas fa-moon"></i>
-                            <span>590nm琥珀光促进入睡 · 无蓝光干扰</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="tech-item">
-                    <div class="tech-img" style="background: linear-gradient(135deg, #68b0ab 0%, #8fc0a9 100%);">
-                        <i class="fas fa-tablet-alt"></i>
-                    </div>
-                    <div class="tech-content">
-                        <h3>智能照护管理平台</h3>
-                        <p>AI个性化方案推荐 + 效果追踪 + 自动报告生成</p>
-                        <div class="tech-stats">
-                            <i class="fas fa-brain"></i>
-                            <span>基于20000+老人数据训练的推荐算法</span>
-                        </div>
-                        <div class="tech-stats">
-                            <i class="fas fa-chart-line"></i>
-                            <span>实时监测生理指标，动态调整方案</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="section-title" style="margin-top: 60px;">
-                <h2>科学验证的疗愈效果</h2>
-                <p>哈佛医学院研究证实：特定声光刺激可使失智老人激越行为减少68%</p>
-            </div>
-            
-            <div class="testimonials">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"实施声光疗愈系统后，夜醒次数从平均11次降至3次，家属续费率提升至100%，员工夜班压力大幅减轻。"</p>
-                        <div class="testimonial-author">
-                            <div class="author-img">李</div>
-                            <div class="author-info">
-                                <h4>李院长</h4>
-                                <p>上海夕阳红养老院 · 86床机构</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"认知干预方案让我们的阿尔茨海默症老人明显改善了情绪状态，减少了攻击行为，药物使用量下降了40%。"</p>
-                        <div class="testimonial-author">
-                            <div class="author-img">王</div>
-                            <div class="author-info">
-                                <h4>王主任</h4>
-                                <p>北京康乐记忆照护中心</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"通过声光疗愈方案，我们成功将每位老人的年度综合照护成本降低了28%，6个月即收回投资。"</p>
-                        <div class="testimonial-author">
-                            <div class="author-img">张</div>
-                            <div class="author-info">
-                                <h4>张运营总监</h4>
-                                <p>广州仁爱养老集团</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section id="tech">
+      <div class="container">
+        <h2>前沿疗愈技术展示</h2>
+        <div class="grid three">
+          <div class="card">
+            <h3>多频声波共振系统</h3>
+            <p class="muted">专利 δ/θ/α 脑波诱导技术，针对不同症状精确匹配声频方案。</p>
+            <p class="muted">白天提升专注力约30%，夜间深睡延长约2小时；40–500Hz 精准频率范围，自然声景数据库。</p>
+          </div>
+          <div class="card">
+            <h3>全光谱节律照明</h3>
+            <p class="muted">动态调节色温与亮度，模拟自然日光节律。</p>
+            <p class="muted">480nm 蓝光抑制褪黑素以提升日间活力；590nm 琥珀光促进入睡且无蓝光干扰。</p>
+          </div>
+          <div class="card">
+            <h3>智能照护管理平台</h3>
+            <p class="muted">AI 个性化方案推荐 + 效果追踪 + 自动报告生成，基于 20000+ 老人数据训练。</p>
+            <p class="muted">实时监测生理指标，按反馈动态调整方案，实现闭环管理。</p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="process" id="process">
-        <div class="container">
-            <div class="section-title">
-                <h2>标准化服务流程</h2>
-                <p>四步实现科学声光疗愈，30天可见明显效果</p>
-            </div>
-            
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-icon">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <h3>专业评估</h3>
-                    <p>全面健康测评 + 睡眠质量分析 + 认知功能检测</p>
-                </div>
-                
-                <div class="step">
-                    <div class="step-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>方案定制</h3>
-                    <p>AI生成个性化声光方案 + 设备参数配置</p>
-                </div>
-                
-                <div class="step">
-                    <div class="step-icon">
-                        <i class="fas fa-play-circle"></i>
-                    </div>
-                    <h3>疗愈实施</h3>
-                    <p>每日30分钟晨间干预 + 睡前θ波诱导</p>
-                </div>
-                
-                <div class="step">
-                    <div class="step-icon">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <h3>效果追踪</h3>
-                    <p>生理数据监测 + 月度效果评估 + 方案优化</p>
-                </div>
-            </div>
+    <section>
+      <div class="container">
+        <h2>科学验证与一线反馈</h2>
+        <div class="grid two">
+          <div class="panel quote">
+            <blockquote>“特定声光刺激可使失智老人激越行为减少约 68%。”</blockquote>
+            <div class="muted">— 哈佛医学院相关研究摘要</div>
+          </div>
+          <div class="panel quote">
+            <blockquote>“实施声光疗愈系统后，夜醒次数从 11 次降至 3 次，家属续费率提升至 100%，员工夜班压力显著下降。”</blockquote>
+            <div class="muted">— 李院长 · 上海夕阳红养老院（86 床）</div>
+          </div>
+          <div class="panel quote">
+            <blockquote>“认知干预方案让阿尔茨海默症老人情绪更稳定，攻击行为减少，药物使用量下降约 40%。”</blockquote>
+            <div class="muted">— 王主任 · 北京康乐记忆照护中心</div>
+          </div>
+          <div class="panel quote">
+            <blockquote>“通过声光疗愈，年度综合照护成本下降约 28%，6 个月收回投资。”</blockquote>
+            <div class="muted">— 张运营总监 · 广州仁爱养老集团</div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- ROI Calculator -->
-    <section class="roi-calculator" id="calculator">
-        <div class="container">
-            <div class="section-title">
-                <h2>投入产出测算器</h2>
-                <p>立即计算您的养老院可实现的成本节约</p>
-            </div>
-            
-            <div class="calculator-box">
-                <h3>20床位机构年节省：<span style="color: var(--accent);">¥318,600</span></h3>
-                
-                <div class="input-group">
-                    <label>养老院床位数</label>
-                    <input type="number" value="50" min="10" max="500">
-                </div>
-                
-                <div class="input-group">
-                    <label>当前月均精神类药物支出 (¥)</label>
-                    <input type="number" value="25000">
-                </div>
-                
-                <div class="input-group">
-                    <label>当前夜班护工人数</label>
-                    <input type="number" value="4">
-                </div>
-                
-                <a href="#" class="btn">获取定制化测算报告</a>
-                
-                <div class="result">
-                    <h4>预估年度综合节省</h4>
-                    <div class="result-value">¥796,500</div>
-                    <p>基于您输入的参数计算得出 · 包含药物、人力、事故等成本节约</p>
-                </div>
-            </div>
+    <section id="process">
+      <div class="container">
+        <h2>标准化服务流程</h2>
+        <div class="grid four two">
+          <div class="panel">
+            <h3>1. 专业评估</h3>
+            <p class="muted">健康测评 + 睡眠质量分析 + 认知功能检测</p>
+          </div>
+          <div class="panel">
+            <h3>2. 方案定制</h3>
+            <p class="muted">AI 生成个性化声光方案 + 设备参数配置</p>
+          </div>
+          <div class="panel">
+            <h3>3. 疗愈实施</h3>
+            <p class="muted">每天 30 分钟晨间干预 + 睡前 θ 波诱导</p>
+          </div>
+          <div class="panel">
+            <h3>4. 效果追踪</h3>
+            <p class="muted">生理数据监测 + 月度评估 + 方案优化</p>
+          </div>
         </div>
+        <p class="muted">四步实现科学声光疗愈，30 天可见明显效果。</p>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-info">
-                    <div class="footer-logo">
-                        <i class="fas fa-brain"></i>
-                        <span>声光疗愈</span>
-                    </div>
-                    <p>基于神经科学的非药物干预解决方案，帮助养老机构提升照护质量，降低运营成本，实现科技养老转型。</p>
-                    <a href="#calculator" class="btn">获取实施方案</a>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>快速链接</h3>
-                    <ul>
-                        <li><a href="#features">核心疗愈方案</a></li>
-                        <li><a href="#value">院长价值分析</a></li>
-                        <li><a href="#technology">技术展示</a></li>
-                        <li><a href="#process">服务流程</a></li>
-                        <li><a href="#calculator">成本测算</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contact">
-                    <h3>联系我们</h3>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            上海市浦东新区科技园88号创新大厦
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            400-888-5678
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-text">
-                            contact@shengguangly.com
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="contact-text">
-                            周一至周五 9:00-18:00
-                        </div>
-                    </div>
-                </div>
+    <section id="calc">
+      <div class="container">
+        <h2>投入产出测算器</h2>
+        <p class="muted">填写贵院关键参数，快速估算可实现的年度综合节省（药物、夜班人力、事故相关）。公式可按需定制。</p>
+        <div class="grid two calc">
+          <div class="panel">
+            <div class="row">
+              <div>
+                <label for="beds">床位数</label>
+                <input id="beds" type="number" min="1" value="40" />
+              </div>
+              <div>
+                <label for="nightStaff">当前夜班护工人数</label>
+                <input id="nightStaff" type="number" min="0" value="4" />
+              </div>
             </div>
-            
-            <div class="copyright">
-                <p>© 2023 声光疗愈科技公司 版权所有 | 沪ICP备2023012345号</p>
+            <div class="row" style="margin-top:12px">
+              <div>
+                <label for="psychCost">月均精神类药物支出（¥）</label>
+                <input id="psychCost" type="number" min="0" value="100000" />
+              </div>
+              <div>
+                <label for="nightWage">每名夜班护工月成本（¥）</label>
+                <input id="nightWage" type="number" min="0" value="6000" />
+              </div>
             </div>
+            <div class="row" style="margin-top:12px">
+              <div class="full">
+                <label for="accidentCost">年度跌倒/纠纷等事故相关支出（¥）</label>
+                <input id="accidentCost" type="number" min="0" value="120000" />
+              </div>
+            </div>
+            <div class="cta" style="margin-top:14px">
+              <button class="btn pri" onclick="computeSavings()">立即计算</button>
+              <button class="btn ghost" onclick="resetCalc()">重置</button>
+            </div>
+          </div>
+          <div class="panel" id="calcResult">
+            <div class="result">预计年度综合节省：—</div>
+            <p class="muted" id="detail">将根据药物支出下降约 35%、夜班配置降低约 40%、事故成本下降约 50% 初步估算。</p>
+          </div>
         </div>
-    </footer>
+        <p class="muted" style="margin-top:10px">注：以上为保守估算，用于决策参考；实际效果依机构人群结构与执行规范而异。</p>
+      </div>
+    </section>
 
-    <script>
-        // 简单的ROI计算器交互
-        document.addEventListener('DOMContentLoaded', function() {
-            const inputs = document.querySelectorAll('.input-group input');
-            const resultValue = document.querySelector('.result-value');
-            
-            function calculateROI() {
-                const beds = parseInt(document.querySelectorAll('.input-group input')[0].value) || 50;
-                const medCost = parseInt(document.querySelectorAll('.input-group input')[1].value) || 25000;
-                const nightStaff = parseInt(document.querySelectorAll('.input-group input')[2].value) || 4;
-                
-                // 简化计算逻辑
-                const saving = beds * 1500 + medCost * 0.35 * 12 + nightStaff * 3000 * 12 * 0.4;
-                
-                resultValue.textContent = '¥' + saving.toLocaleString();
-            }
-            
-            inputs.forEach(input => {
-                input.addEventListener('input', calculateROI);
-            });
-            
-            // 初始化计算
-            calculateROI();
-            
-            // 平滑滚动
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        window.scrollTo({
-                            top: target.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        });
-    </script>
+    <section id="contact">
+      <div class="container">
+        <h2>联系我们 · 预约演示</h2>
+        <div class="grid two">
+          <div class="panel">
+            <div class="list">
+              <div class="item"><div class="dot"></div><div><strong>地址：</strong>上海市浦东新区科技园 88 号创新大厦</div></div>
+              <div class="item"><div class="dot"></div><div><strong>电话：</strong>400-888-5678</div></div>
+              <div class="item"><div class="dot"></div><div><strong>邮箱：</strong>contact@shengguangly.com</div></div>
+              <div class="item"><div class="dot"></div><div><strong>时间：</strong>周一至周五 9:00–18:00</div></div>
+              <div class="item"><div class="dot"></div><div><strong>支持：</strong>提供院内试点与标准化交付方案</div></div>
+            </div>
+          </div>
+          <div class="panel">
+            <form onsubmit="mailtoDraft(event)">
+              <div class="row">
+                <div>
+                  <label for="org">机构名称</label>
+                  <input id="org" required placeholder="如：广州某某养老院" />
+                </div>
+                <div>
+                  <label for="name">联系人</label>
+                  <input id="name" required placeholder="您的姓名" />
+                </div>
+              </div>
+              <div class="row" style="margin-top:12px">
+                <div>
+                  <label for="phone">联系电话</label>
+                  <input id="phone" required placeholder="手机或座机" />
+                </div>
+                <div>
+                  <label for="city">城市</label>
+                  <input id="city" placeholder="如：广州" />
+                </div>
+              </div>
+              <div class="row" style="margin-top:12px">
+                <div class="full">
+                  <label for="msg">备注</label>
+                  <input id="msg" placeholder="床位数/当前痛点/期望演示时间…" />
+                </div>
+              </div>
+              <div class="cta" style="margin-top:14px">
+                <button class="btn pri" type="submit">发送预约</button>
+                <span class="muted">或复制邮件至 <span class="kbd">contact@shengguangly.com</span></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+        <div>© 2023 声光疗愈科技公司 · 版权所有</div>
+        <div>沪ICP备2023012345号</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function fmt(n){
+      return '¥' + n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+    function computeSavings(){
+      const beds = +document.getElementById('beds').value || 0;
+      const nightStaff = +document.getElementById('nightStaff').value || 0;
+      const psychCost = +document.getElementById('psychCost').value || 0;
+      const nightWage = +document.getElementById('nightWage').value || 0;
+      const accidentCost = +document.getElementById('accidentCost').value || 0;
+
+      // 保守测算模型（可按院方实际情况微调）
+      const psychSave = psychCost * 12 * 0.35;      // 药物支出下降 35%
+      const nightSave = nightStaff * nightWage * 12 * 0.40; // 夜班配置降低 40%
+      const accSave = accidentCost * 0.50;          // 事故成本下降 50%
+
+      const total = psychSave + nightSave + accSave;
+
+      document.querySelector('#calcResult .result').textContent = '预计年度综合节省：' + fmt(total);
+      document.getElementById('detail').innerHTML =
+        '药物节省约 ' + fmt(psychSave) + ' · 夜班人力节省约 ' + fmt(nightSave) + ' · 事故相关节省约 ' + fmt(accSave) +
+        '<br><span class="muted">注：未计入床位费溢价等增收项，实际收益或更高。</span>';
+    }
+    function resetCalc(){
+      document.getElementById('beds').value = 40;
+      document.getElementById('nightStaff').value = 4;
+      document.getElementById('psychCost').value = 100000;
+      document.getElementById('nightWage').value = 6000;
+      document.getElementById('accidentCost').value = 120000;
+      document.querySelector('#calcResult .result').textContent = '预计年度综合节省：—';
+      document.getElementById('detail').textContent = '将根据药物支出下降约 35%、夜班配置降低约 40%、事故成本下降约 50% 初步估算。';
+    }
+    function mailtoDraft(e){
+      e.preventDefault();
+      const org = encodeURIComponent(document.getElementById('org').value || '');
+      const name = encodeURIComponent(document.getElementById('name').value || '');
+      const phone = encodeURIComponent(document.getElementById('phone').value || '');
+      const city = encodeURIComponent(document.getElementById('city').value || '');
+      const msg = encodeURIComponent(document.getElementById('msg').value || '');
+      const subject = encodeURIComponent('【预约演示】' + decodeURIComponent(org));
+      const body = encodeURIComponent(
+        '机构：' + decodeURIComponent(org) + '\n' +
+        '联系人：' + decodeURIComponent(name) + '\n' +
+        '电话：' + decodeURIComponent(phone) + '\n' +
+        '城市：' + decodeURIComponent(city) + '\n' +
+        '备注：' + decodeURIComponent(msg)
+      );
+      window.location.href = 'mailto:contact@shengguangly.com?subject=' + subject + '&body=' + body;
+    }
+  </script>
 </body>
 </html>
